@@ -16,7 +16,7 @@ namespace utils
     long now = ms();
     long dt = now - start;
     start = now;
-    printf("toc: %ld\n", dt);
+    printf("tic: %ld\n", dt);
     return dt;
   }
 }

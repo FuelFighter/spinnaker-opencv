@@ -1,3 +1,5 @@
 *.o
 *.sw*
 *.out
+*.jpg
+run

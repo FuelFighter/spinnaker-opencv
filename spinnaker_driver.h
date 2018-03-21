@@ -236,10 +236,6 @@ namespace spinnaker_driver
   {
     //int AcquireImage(CameraPtr pCam, INodeMap & nodeMap, INodeMap & nodeMapTLDevice)
     int result = 0;
-  
-    long time = utils::ms();
-  
-    utils::tic(time);
     
     try
     {
@@ -320,7 +316,6 @@ namespace spinnaker_driver
   
   void shutdown()
   {
-    std::cout << "shutdown\n";
     //
     // End acquisition
     //
@@ -329,11 +324,9 @@ namespace spinnaker_driver
     // properly and do not need to be power-cycled to maintain integrity.
     //
     pCam->EndAcquisition();
-    std::cout << "i\n";
   
     // Deinitialize camera
     pCam->DeInit();
-    std::cout << "i\n";
   
     //
     // Release reference to the camera
@@ -346,10 +339,8 @@ namespace spinnaker_driver
     pCam = 0;
     // Clear camera list before releasing system
     camList.Clear();
-    std::cout << "i\n";
     // Release system
     system->ReleaseInstance();
-    std::cout << "i\n";
     //std::cout << std::endl << "Done! Press Enter to exit..." << std::endl;
     //getchar();
   }
