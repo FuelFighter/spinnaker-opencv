@@ -1,0 +1,6 @@
+#!/bin/bash
+PROJECT_NAME=reodor-environment
+OWNER=fuelfighter
+
+DOCKER_REPOSITORY_NAME=$OWNER/$PROJECT_NAME
+WORKDIR=/root/$PROJECT_NAME
