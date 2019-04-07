@@ -148,10 +148,13 @@ namespace spinnaker_driver
     // 
   
     CEnumerationPtr ptrPixelFormat = nodeMap.GetNode("PixelFormat");
+      std::cout << "Pixel format is " << ptrPixelFormat->GetCurrentEntry()->GetSymbolic() << "..." << std::endl;
+      printf("isavailable: %d, iswritable: %d\n", IsAvailable(ptrPixelFormat), IsWritable(ptrPixelFormat));
       if (IsAvailable(ptrPixelFormat) && IsWritable(ptrPixelFormat))
       {
         // Retrieve the desired entry node from the enumeration node
-        CEnumEntryPtr ptrPixelFormatRGB8 = ptrPixelFormat->GetEntryByName("RGB8");
+        CEnumEntryPtr ptrPixelFormatRGB8 = ptrPixelFormat->GetEntryByName("BGR8");
+        printf("isavailable: %d, isreadable: %d\n", IsAvailable(ptrPixelFormatRGB8), IsReadable(ptrPixelFormatRGB8));
         if (IsAvailable(ptrPixelFormatRGB8) && IsReadable(ptrPixelFormatRGB8))
         {
           // Retrieve the integer value from the entry node
@@ -163,6 +166,7 @@ namespace spinnaker_driver
         else
         {
           std::cout << "Pixel format not available..." << std::endl;
+          std::cout << "Pixel format is " << ptrPixelFormat->GetCurrentEntry()->GetSymbolic() << "..." << std::endl;
         }
       }
       else
@@ -251,6 +255,7 @@ namespace spinnaker_driver
   
         if (firstGetFrame)
         {
+          printf("firstgetframe\n");
           frame = cv::Mat(pResultImage->GetHeight() + pResultImage->GetYPadding(), pResultImage->GetWidth() + pResultImage->GetXPadding(), CV_8UC3);
           firstGetFrame = false;
         }

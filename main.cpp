@@ -5,8 +5,8 @@
 #include "utils.h"
 #include "spinnaker_driver.h"
 
-#define IMVIEW false
-#define IMSAVE true
+#define IMVIEW true
+#define IMSAVE false
 
 bool done = false;
 
