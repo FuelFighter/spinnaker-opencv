@@ -28,5 +28,15 @@ build:
 
 run:
 ```
-./run.sh
+./run <imsave (1 or 0), default is 0>
+```
+
+save images in real time:
+```
+./run 0 1
+```
+
+view images in real time:
+```
+./run 1 0
 ```
